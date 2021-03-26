@@ -9,7 +9,7 @@ from time import sleep
 altitude = 90-20
 duration = 600
 
-pefki = EarthLocation(lat=38*u.deg, lon=23*u.deg, height=250*u.m)
+athens = EarthLocation(lat=38*u.deg, lon=23*u.deg, height=250*u.m)
 utcoffset = +3 * u.degree
 
 # Define observation parameters
@@ -57,7 +57,7 @@ for i in range(0, 360, 5):
 	current_time = current_time+(duration*u.second/2)
 
 	#Convert Alt/Az to RA/Dec
-	AltAzcoordiantes = SkyCoord(alt = altitude*u.deg, az = 0*u.deg, obstime = current_time, frame = 'altaz', location = pefki)
+	AltAzcoordiantes = SkyCoord(alt = altitude*u.deg, az = 0*u.deg, obstime = current_time, frame = 'altaz', location = athens)
 	c = AltAzcoordiantes.icrs
 
 	ra = str(c.ra.hour) #[0:2].replace('h','') #u.hour
